@@ -1,0 +1,16 @@
+.game-library {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+form {
+  margin: 2em;
+  padding-bottom: 10px;
+}
+
+button {
+  width: 11em;
+  height: 2em;
+  background-color: #C5F5FF;
+}
