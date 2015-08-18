@@ -9,8 +9,13 @@ form {
   padding-bottom: 10px;
 }
 
-button {
+
+button, select {
   width: 11em;
   height: 2em;
-  background-color: #C5F5FF;
+
+}
+
+button {
+ background-color: #C5F5FF;
 }

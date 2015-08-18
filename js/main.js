@@ -4,7 +4,8 @@ $(document).on('ready', function() {
 var gameParagraph;
 
 // Create a Game() class with the following properties:
-var Game = function(title, genre) {
+var Game = function(library, title, genre) {
+  this.library = library;
   this.title = title;
   this.genre = genre;
 }
@@ -28,7 +29,7 @@ Game.prototype.render = function() {
 // Create a GameLibrary() class with the following properties:
 var GameLibrary = function(title, games) {
   this.title = title;
-  this.games = games;
+  this.games = [];
 }
 
 // Create a render() method on the GameLibrary() prototype for adding instances of the GameLibrary() class to the DOM.
@@ -49,7 +50,7 @@ GameLibrary.prototype.render = function() {
 // Add a form to the HTML document for adding new games to the game library, making sure to re-populate all the games on the HTML document.
 
 var gameForm = $('<form>')
-gameForm.append($('<div><input type="text" placeholder="Library" class="libraryInput"></div>'))
+gameForm.append($('<div><select><option>test</option></select></div>'))
 gameForm.append($('<div><input type="text" placeholder="Title" class="titleInput"></div>'))
 gameForm.append($('<div><input type="text" placeholder="Genre" class="genreInput"></div>'))
 gameForm.append($('<div><button type="text" class="submit">Submit</button></div>'))
@@ -58,15 +59,14 @@ gameForm.append($('</form>'));
 $('body').append(gameForm);
 
 
-$('.submit').on("click", function() {
+$('.submit').on("click", function(event) {
+  event.preventDefault();
   //append library type, title, and genre to page
-  var library = $('.libraryInput').val();
+  var library = $('select').val();
   var title = $('.titleInput').val();
   var genre = $('.genreInput').val();
-
-  var temp = new Game(title,genre);
-  temp.render();
-
+  var game = new Game(library, title, genre)
+  game.render();
 })
 
 });
