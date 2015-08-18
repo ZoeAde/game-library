@@ -1,6 +1,7 @@
 $(document).on('ready', function() {
   console.log('sanity check!');
 
+
 var gameForm = $('<form>')
 gameForm.append($('<div><select><option>Library 1</option><option>Library 2</option></select></div>'))
 gameForm.append($('<div><input type="text" placeholder="Title" class="titleInput"></div>'))
