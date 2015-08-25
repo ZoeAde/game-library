@@ -4,29 +4,45 @@ $(document).on('ready', function() {
 var titleInput = $('.titleInput');
 var genreInput = $('.genreInput');
 var libraryInput = $('.libraryName');
+//only show library options to start
+$('.gameForm').hide();
 
-titleInput.hide();
-genreInput.hide();
-
-$('.submit').on("click", function(event) {
+//When you add a library, show the game form and create the library title
+$('.libraryBtn').on("click", function(event) {
   event.preventDefault();
-  //add library name;
-  if (title.hide) {
-    var library = $('select').val();
-    var newLibrary = $('.newLibrary').val();
-    var lib = new GameLibrary(library);
-    titleInput.show();
-    genreInput.show();
-    libraryInput.hide();
+  //hide library
+  $('.libraryForm').hide();
+  $('.gameForm').show();
+
+  //add title
+  var titlePlacement = $('.libraryTitle');
+  var libraryInput = $('.libraryInput').val();
+  var librarySelection = $('.librarySelection').val();
+
+  //if input box isnt empty, use that value and append to screen, append to option list
+  if (libraryInput !== "") {
+    titlePlacement.append("<h2 class='libTitle'>" + libraryInput + "</h2>");
+    console.log('not empty input');
   }
-  else{
+  else if (librarySelection !== "Select Library") {
+    console.log('selected from list');
+    titlePlacement.append("<h2 class='libTitle'>" + librarySelection + "</h2>");
+  }
+  else {
+    console.log("Please select a Library");
+  }
+});
+
+$('.gameBtn').on("click", function(event) {
+  event.preventDefault();
     var title = $('.titleInput').val();
     var genre = $('.genreInput').val();
     var game = new Game(title, genre);
-    lib.addGame(game);
-    lib.render();
-  }
+    console.log(game);
+    var addGame = game.render();
+    $('.libraryGames').append(addGame);
 });
+
 
 });
 

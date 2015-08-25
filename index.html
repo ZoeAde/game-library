@@ -8,26 +8,62 @@
   </head>
   <body>
 
-    <h1>Game Library</h1>
-      <form>
-        <div>
-          <input type="text" placeholder="Enter Library Name" class="libraryName">
+
+    <div class="container">
+      <h1>Game Library</h1>
+      <form class="libraryForm horizontal-form">
+        <div class="form-group">
+          <label>Library Name</label>
+          <select class="form-control librarySelection">
+            <option>Select Library</option>
+            <option>choice 1</option>
+            <option>choice 2</option>
+          </select>
         </div>
-        <div>
+
+        <p class="help-block">OR</p>
+
+        <div class="form-group">
+          <input type="text" placeholder="Add New Library" class="libraryInput">
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-success libraryBtn">Submit</button>
+      </form>
+      <div class="row">
+
+      <div class="col-sm-6">
+
+
+      <form class="gameForm horizontal-form"> <!-- col-sm-6 -->
+        <div class="form-group">
+          <label>Game Title</label>
           <input type="text" placeholder="Title" class="titleInput">
         </div>
-        <div>
+        <div class="form-group">
+          <label>Game Genre</label>
           <input type="text" placeholder="Genre" class="genreInput">
         </div>
-        <div>
-          <button type="text" class="submit">Submit</button>
-        </div>
+
+        <button type="submit" class="btn btn-success gameBtn">Add New Game</button>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-warning returnBtn">Return to Library</button>
       </form>
+      </div>
 
-<div class="libraryTitle">
+      <div class="col-sm-6">
+        <div class="libraryTitle">
 
-</div>
+        </div>
+        <div class="libraryGames">
 
+        </div>
+
+      </div>
+        <!-- end results -->
+      </div>
+    </div>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/utility.js"></script>

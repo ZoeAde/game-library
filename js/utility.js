@@ -3,11 +3,11 @@ var Game = function(title, genre) {
   this.genre = genre;
 }
 
+var libraryGames = $('.libraryGames');
 Game.prototype.render = function() {
-  var gameItem = $('<div>')
-  libraryItems.append('<li>' + this.games[i].title + '</li>');
-  libraryItems.append('<li>' + this.games[i].genre + '</li>');
-  libraryItems.append('<p></p>');
+  libraryGames.append('<li>Title: ' + this.title + '</li>');
+  libraryGames.append('<li>Genre: ' + this.genre + '</li>');
+  libraryGames.append('<br>');
 };
 
 var GameLibrary = function(title) {
@@ -26,10 +26,10 @@ GameLibrary.prototype.render = function() {
     libraryItems.append('<li>' + this.games[i].title + '</li>');
     libraryItems.append('<li>' + this.games[i].genre + '</li>');
     libraryItems.append('<p></p>');
+};
 
-  };
+  // $('body').append(libraryItems);
 
-  $('body').append(libraryItems);
 };
 
 GameLibrary.prototype.addGame = function(newGame) {
